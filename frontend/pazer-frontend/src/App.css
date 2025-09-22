@@ -5,3 +5,18 @@
   text-align: center;
 }
 
+/* Banner */
+.banner{
+  display: flex;
+  flex-flow: column;
+  height: 100px;
+  width: 200px;
+  margin: auto;
+  align-items: center
+}
+.h1{
+  margin-bottom: 1px;
+}
+.h4{
+  margin-top: 1px;
+}
