@@ -1,15 +1,14 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework import viewsets
-
-from .models import Task
-
+from .models import RunningUnit
 from .serializers import TaskSerializer
 
+# views.py = enthält die Logik für die API-Endpunkte.
+# ViewSets liefern automatisch CRUD-Operationen (Create, Read, Update, Delete).
+# Django REST Framework nimmt uns hier sehr viel Arbeit ab.
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all()  # welche Daten aus DB geholt werden
+    # Welche Daten aus der Datenbank geholt werden
+    queryset = RunningUnit.objects.all()
 
-    serializer_class = TaskSerializer  # wie sie in JSON umgewandelt werden
-
+    # Wie die Daten in JSON übersetzt werden
+    serializer_class = TaskSerializer

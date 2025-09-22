@@ -1,11 +1,11 @@
 from rest_framework import serializers
+from .models import RunningUnit
 
-from .models import Task
+# serializers.py = Übersetzt Daten zwischen Python-Objekten (Modellen) und JSON.
+# Ohne Serializer könnte Django REST Framework die Daten nicht als JSON ausgeben
+# oder von JSON zurück in ein Python-Objekt umwandeln.
 
-# Alle Felder ins JSON übernehmen
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Task
-
-        fields = "__all__"
-
+        model = RunningUnit   # Welches Model soll übersetzt werden
+        fields = "__all__"    # Welche Felder -> alle Felder des Modells
