@@ -2,7 +2,8 @@ export function Button() {
     function buttonOnClickEvent() {
 
         // pace berechnen und anzeigen
-       //double pace = zeit/km
+        
+            //double pace = zeit/km
         // km,h und pace sollen in die Datenbank geschrieben werden
             //warten auf Endpunkte
         // Stockchart soll reloaded werden
@@ -13,7 +14,7 @@ export function Button() {
     return(
         <>
         <div className="button">
-           <button onClick={buttonOnClickEvent} >Update</button>
+            <button type="submit" onClick={buttonOnClickEvent} >Update</button>
         </div>
         </>
         )
