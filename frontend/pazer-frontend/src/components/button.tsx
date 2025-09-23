@@ -13,7 +13,7 @@ export function Button() {
     return(
         <>
         <div className="button">
-           <button onClickEvent="buttonOnClickEvent()">Update</button>
+           <button onClick={buttonOnClickEvent} >Update</button>
         </div>
         </>
         )
