@@ -31,8 +31,8 @@ INSTALLED_APPS = [
 
 # Middleware-Kette, die Anfragen und Antworten durchläuft
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",            # CORS-Handling
     "django.middleware.security.SecurityMiddleware",       # Sicherheitsfunktionen
-    "corsheaders.middleware.CorsMiddleware",              # Fügt CORS-Header hinzu
     "django.contrib.sessions.middleware.SessionMiddleware",# Sitzungsverwaltung
     "django.middleware.common.CommonMiddleware",           # Basisfunktionen für Requests
     "django.middleware.csrf.CsrfViewMiddleware",           # Schutz vor CSRF-Angriffen
@@ -94,7 +94,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Grundeinstellungen für Django REST Framework
 REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination", # Standard-Pagination
+    "DEFAULT_PAGINATION_CLASS": None, #rest_framework.pagination.PageNumberPagination",  Standard-Pagination
     "PAGE_SIZE": 20,  # Anzahl Objekte pro Seite
     "DEFAULT_FILTER_BACKENDS": [
         "rest_framework.filters.SearchFilter",   # Such-Filter
@@ -105,7 +105,7 @@ REST_FRAMEWORK = {
 # Erlaubte Ursprünge für Cross-Origin-Anfragen (z. B. von React-Frontend)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
 ]
 
 # Vertrauenswürdige Ursprünge für CSRF-geschützte Anfragen

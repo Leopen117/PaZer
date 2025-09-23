@@ -1,21 +1,21 @@
+import type {RunningUnit} from "../types/units.ts";
+import {getRuns} from "../api/run.ts";
+
 export function Button() {
-    function buttonOnClickEvent() {
 
-        // pace berechnen und anzeigen
-        
-            //double pace = zeit/km
-        // km,h und pace sollen in die Datenbank geschrieben werden
-            //warten auf Endpunkte
-        // Stockchart soll reloaded werden
-        // neuer Eintrag in der Historytabelle
+
+    async function buttonOnClickEvent() {
+        try {
+            const data: RunningUnit[] = await getRuns();
+            console.log("Runs:", data);
+        } catch (e) {
+            console.error("Fehler beim Laden:", e);
         }
-
-
-    return(
-        <>
-        <div className="button">
-            <button type="submit" onClick={buttonOnClickEvent} >Update</button>
-        </div>
-        </>
-        )
     }
+
+    return (
+        <div className="button">
+            <button onClick={buttonOnClickEvent}>Update</button>
+        </div>
+    );
+}
