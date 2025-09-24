@@ -1,21 +1,28 @@
-import type {RunningUnit} from "../types/units.ts";
-import {getRuns} from "../api/run.ts";
+import { createRun } from "../api/run"
+import type { NewRunningUnit } from "../types/units"
 
-export function Button() {
+type ButtonProps =  {
+    data: NewRunningUnit
+}
 
+export function Button({ data }: ButtonProps) {
+    function buttonOnClickEvent() {
+        createRun(data)
+    
 
-    async function buttonOnClickEvent() {
-        try {
-            const data: RunningUnit[] = await getRuns();
-            console.log("Runs:", data);
-        } catch (e) {
-            console.error("Fehler beim Laden:", e);
-        }
+        // km,h und pace sollen in die Datenbank geschrieben werden
+            //warten auf Endpunkte
+        // Stockchart soll reloaded werden
+        // neuer Eintrag in der Historytabelle
+        
     }
 
-    return (
+
+    return(
+        <>
         <div className="button">
-            <button onClick={buttonOnClickEvent}>Update</button>
+            <button type="submit" onClick={buttonOnClickEvent} >Update</button>
         </div>
-    );
-}
+        </>
+        )
+    }
