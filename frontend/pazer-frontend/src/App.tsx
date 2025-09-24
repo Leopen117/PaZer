@@ -4,6 +4,7 @@ import { Banner } from "./components/banner";
 
 import { Button } from "./components/button";
 import { InputField } from "./components/inputField";
+import type { NewRunningUnit } from "./types/units";
 
 
 
@@ -34,6 +35,18 @@ function App() {
     }
 
   };
+  
+  // Daten zusammenführen 
+
+
+  let data: NewRunningUnit = {
+     route_name: formData.streckenname,
+    kilometers: formData.km,
+    pace: pace,
+    date: formData.datum,
+    time: formData.zeit
+  }
+
 
   return (
     <>
@@ -69,7 +82,7 @@ function App() {
         value={pace}
         readonly
       />
-      <Button>
+      <Button data={data}>
       </Button>
     </form>
 
