@@ -11,5 +11,5 @@ export type NewRunningUnit = {
     kilometers: string;
     pace: string;
     date: string;
-    time: string
+    time: string //test
 };
