@@ -1,13 +1,6 @@
 import type {NewRunningUnit, RunningUnit} from "../types/units.ts";
 import {API_BASE} from "./config.ts";
 
-
-
-
-
-
-// ---- minimal CRUD ----
-
 export async function getRuns(): Promise<RunningUnit[]> {
     const res = await fetch(`${API_BASE}/runs/`);
     if (!res.ok) throw new Error(`GET /runs failed: ${res.status}`);
