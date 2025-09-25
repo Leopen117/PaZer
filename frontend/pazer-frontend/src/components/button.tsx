@@ -1,28 +1,16 @@
 import { createRun } from "../api/run"
 import type { NewRunningUnit } from "../types/units"
 
-type ButtonProps =  {
-    data: NewRunningUnit
-}
+type ButtonProps = {
+    label: string;
+};
 
-export function Button({ data }: ButtonProps) {
-    function buttonOnClickEvent() {
-        createRun(data)
-    
-
-        // km,h und pace sollen in die Datenbank geschrieben werden
-            //warten auf Endpunkte
-        // Stockchart soll reloaded werden
-        // neuer Eintrag in der Historytabelle
-        
-    }
-
-
-    return(
-        <>
+export function Button({ label }: ButtonProps) {
+    return (
         <div className="button">
-            <button type="submit" onClick={buttonOnClickEvent} >Update</button>
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                {label}
+            </button>
         </div>
-        </>
-        )
-    }
+    );
+}
