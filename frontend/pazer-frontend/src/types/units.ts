@@ -1,4 +1,5 @@
 export type RunningUnit = {
+    id: number;
     date: string;        // auto_now_add (YYYY-MM-DD)
     route_name: string;
     kilometers: string;
@@ -11,5 +12,5 @@ export type NewRunningUnit = {
     kilometers: string;
     pace: string;
     date: string;
-    time: string //test
+    time: string; //test
 };
