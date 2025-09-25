@@ -1,22 +1,121 @@
+/* App Container - Root Element */
 #root {
+  /* Layout & Positioning */
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  min-height: 100vh;
+  
+  /* Responsive Padding */
+  padding: clamp(1rem, 5vw, 2rem);
+  
+  /* Flexbox für besseres Layout-Management */
+  display: flex;
+  flex-direction: column;
+}
+
+/* App Komponente */
+.App {
+  /* Nimmt den verfügbaren Platz ein */
+  flex: 1;
+  
+  /* Standard-Zentrierung für Hauptinhalte */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  
+  /* Nur für den Hauptinhalt zentrieren, nicht alles */
   text-align: center;
 }
 
-/* Banner */
-.banner{
-  display: flex;
-  flex-flow: column;
-  height: 100px;
-  width: 200px;
-  margin: auto;
-  align-items: center
+/* Header Section */
+.App-header {
+  width: 100%;
+  padding: 2rem 0;
 }
-.h1{
-  margin-bottom: 1px;
+
+/* Main Content Area */
+.App-main {
+  width: 100%;
+  max-width: 800px; /* Lesbare Zeilenlänge */
+  flex: 1;
+  
+  /* Für längere Inhalte links ausrichten */
+  text-align: left;
 }
-.h4{
-  margin-top: 1px;
+
+/* Footer */
+.App-footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 2rem 0 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Container für Cards/Komponenten */
+.App-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+/* Utility Classes für verschiedene Text-Ausrichtungen */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Container für unterschiedliche Inhaltsbreiten */
+.container-narrow {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  #root {
+    padding: clamp(0.5rem, 3vw, 1rem);
+  }
+  
+  .App {
+    gap: 1rem;
+  }
+  
+  .App-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .App-header,
+  .App-footer {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-main {
+    text-align: center; /* Auf sehr kleinen Screens wieder zentrieren */
+  }
+}
+
+/* Dark/Light Mode Anpassungen */
+@media (prefers-color-scheme: light) {
+  .App-footer {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
 }

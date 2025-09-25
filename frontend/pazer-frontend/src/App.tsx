@@ -2,16 +2,14 @@ import { useState } from "react";
 import "./App.css";
 import { Banner } from "./components/banner";
 
-import { Button } from "./components/button";
+import Button from "./components/Button/button";
 import { HistoryChart } from "./components/historyChart";
 import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
 import type { NewRunningUnit } from "./types/units";
 
-
-
 function App() {
-  const [pace, setPace] = useState("")
+  const [pace, setPace] = useState("");
   const [formData, setFormData] = useState({
     km: "",
     zeit: "",
@@ -30,67 +28,56 @@ function App() {
       [e.target.name]: e.target.value,
     };
     setFormData(newFormData);
-    
+
     if (newFormData.km && newFormData.zeit) {
       const newPace = (+newFormData.zeit / +newFormData.km).toString();
       setPace(newPace);
     }
-
   };
-  
-  // Daten zusammenführen 
 
+  // Daten zusammenführen
 
   let data: NewRunningUnit = {
-     route_name: formData.streckenname,
+    route_name: formData.streckenname,
     kilometers: formData.km,
     pace: pace,
     date: formData.datum,
-    time: formData.zeit
-  }
-
+    time: formData.zeit,
+  };
 
   return (
     <>
       <Banner></Banner>
-      <HistoryChart/>
+      <HistoryChart />
       <form className="space-y-4">
-      <InputField
-        label="Kilometer"
-        name="km"
-        value={formData.km}
-        onChange={handleChange}
-      />
-      <InputField
-        label="Zeit"
-        name="zeit"
-        value={formData.zeit}
-        onChange={handleChange}
-      />
-      <InputField
-        label="Datum"
-        name="datum"
-        value={formData.datum}
-        onChange={handleChange}
-      />
-      <InputField
-        label="Streckenname"
-        name="streckenname"
-        value={formData.streckenname}
-        onChange={handleChange}
-      />
-      <InputField
-        label="Pace"
-        name="pace"
-        value={pace}
-        readonly
-      />
-      <Button data={data}>
-      </Button>
-    </form>
-    <HistoryTable/>
-
-
+        <InputField
+          label="Kilometer"
+          name="km"
+          value={formData.km}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Zeit"
+          name="zeit"
+          value={formData.zeit}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Datum"
+          name="datum"
+          value={formData.datum}
+          onChange={handleChange}
+        />
+        <InputField
+          label="Streckenname"
+          name="streckenname"
+          value={formData.streckenname}
+          onChange={handleChange}
+        />
+        <InputField label="Pace" name="pace" value={pace} readonly />
+        <Button data={data}></Button>
+      </form>
+      <HistoryChart />
 
       {/* <HistoryChart></HistoryChart>
       
