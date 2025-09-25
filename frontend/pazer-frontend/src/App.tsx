@@ -3,7 +3,7 @@ import "./App.css";
 import { Banner } from "./components/banner";
 
 import { Button } from "./components/button";
-import { HistoryChart } from "./components/historyChart";
+import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
 import type { NewRunningUnit } from "./types/units";
 
@@ -86,7 +86,7 @@ function App() {
       <Button data={data}>
       </Button>
     </form>
-    <HistoryChart/>
+    <HistoryTable/>
 
 
 

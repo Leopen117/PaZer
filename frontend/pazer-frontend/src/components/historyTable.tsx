@@ -3,7 +3,7 @@ import { getRuns } from "../api/run";
 import type { RunningUnit } from "../types/units";
 
 
-export function HistoryChart(){
+export function HistoryTable(){
     //State für die Liste aller Läufe aus der DB
     const[runs, setRuns] = useState<RunningUnit[]>([]);
     //State für den Ladezustand
