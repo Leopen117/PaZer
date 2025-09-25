@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import { Banner } from "./components/banner";
+
+import { Button } from "./components/button";
+import { HistoryChart } from "./components/historyChart";
+
 import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
 import { Button } from "./components/button";
@@ -38,6 +42,7 @@ function App() {
         time: formData.zeit,
     };
 
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
@@ -49,6 +54,46 @@ function App() {
             console.error("Fehler beim Speichern:", err);
         }
     };
+
+  return (
+    <>
+      <Banner></Banner>
+      <HistoryChart/>
+      <form className="space-y-4">
+      <InputField
+        label="Kilometer"
+        name="km"
+        value={formData.km}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Zeit"
+        name="zeit"
+        value={formData.zeit}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Datum"
+        name="datum"
+        value={formData.datum}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Streckenname"
+        name="streckenname"
+        value={formData.streckenname}
+        onChange={handleChange}
+      />
+      <InputField
+        label="Pace"
+        name="pace"
+        value={pace}
+        readonly
+      />
+      <Button data={data}>
+      </Button>
+    </form>
+    <HistoryTable/>
 
     return (
         <>
