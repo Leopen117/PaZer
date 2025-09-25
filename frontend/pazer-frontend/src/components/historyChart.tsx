@@ -20,8 +20,8 @@ export function HistoryChart() {
             <ResponsiveContainer>
                 <LineChart data={runs} margin={{top: 20, right: 30, left: 0, bottom: 20}}>
                     <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="date"/>
-                    <YAxis />
+                    <XAxis dataKey="date" label={{value: "Datum", position: "insideBottomRight", offset: 0}}/>
+                    <YAxis label={{ value: "Pace (min/km)", angle: -90, position: "insideLeft"}}/>
                     <Tooltip/>
                     <Line type="monotone" dataKey="pace" stroke="#8884d8" activeDot={{ r: 8}}/> 
                 </LineChart>
