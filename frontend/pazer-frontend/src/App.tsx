@@ -75,9 +75,9 @@ function App() {
           onChange={handleChange}
         />
         <InputField label="Pace" name="pace" value={pace} readonly />
-        <Button data={data}></Button>
+        <Button></Button>
       </form>
-      <HistoryChart />
+      <HistoryTable />
 
       {/* <HistoryChart></HistoryChart>
       
