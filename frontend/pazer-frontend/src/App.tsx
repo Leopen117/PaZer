@@ -6,6 +6,7 @@ import Button from "./components/Button/button";
 import { HistoryChart } from "./components/historyChart";
 import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
+import { createRun } from "./api/run";
 import type { NewRunningUnit } from "./types/units";
 
 function App() {
@@ -16,13 +17,9 @@ function App() {
     datum: "",
     streckenname: "",
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const [reloadFlag, setReloadFlag] = useState(0); // Trigger für HistoryTable
 
-    //Berechnung von Pace
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newFormData = {
       ...formData,
       [e.target.name]: e.target.value,
@@ -45,11 +42,23 @@ function App() {
     time: formData.zeit,
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await createRun(data);
+      setReloadFlag((prev) => prev + 1); // 🔄 Trigger für Tabelle
+      setFormData({ km: "", zeit: "", datum: "", streckenname: "" }); // Reset Formular
+      setPace("");
+    } catch (err) {
+      console.error("Fehler beim Speichern:", err);
+    }
+  };
+
   return (
     <>
-      <Banner></Banner>
-      <HistoryChart />
-      <form className="space-y-4">
+      <Banner />
+      <HistoryChart></HistoryChart>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <InputField
           label="Kilometer"
           name="km"
@@ -75,14 +84,12 @@ function App() {
           onChange={handleChange}
         />
         <InputField label="Pace" name="pace" value={pace} readonly />
-        <Button></Button>
-      </form>
-      <HistoryTable />
 
-      {/* <HistoryChart></HistoryChart>
-      
-      <Input></Input>
-      <HistoryTable></HistoryTable> */}
+        <Button label="Update" />
+      </form>
+
+      {/* reloadFlag wird als Prop übergeben */}
+      <HistoryTable reloadFlag={reloadFlag} />
     </>
   );
 }
