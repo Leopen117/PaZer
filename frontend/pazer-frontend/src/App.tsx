@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { Banner } from "./components/banner";
-import { Button } from "./components/button";
+
+import Button from "./components/Button/button";
 import { HistoryChart } from "./components/historyChart";
 import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
@@ -31,7 +32,9 @@ function App() {
     }
   };
 
-  const data: NewRunningUnit = {
+  // Daten zusammenführen
+
+  let data: NewRunningUnit = {
     route_name: formData.streckenname,
     kilometers: formData.km,
     pace: pace,
