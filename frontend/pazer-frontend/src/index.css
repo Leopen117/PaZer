@@ -1,8 +1,9 @@
 /* CSS Reset und Basis-Styles */
 *, *::before, *::after {
+  background-color: #f2f2f2;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 1%;
 }
 
 :root {
@@ -19,7 +20,7 @@
   /* Font-Eigenschaften */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
   color-scheme: light dark;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -59,7 +60,7 @@ h3 {
 
 p {
   line-height: 1.6;
-  margin-bottom: 1rem;
+
 }
 
 /* Links */
@@ -72,39 +73,6 @@ a {
 a:hover {
   color: var(--color-primary-hover);
   text-decoration: underline;
-}
-
-/* Buttons */
-button {
-  border-radius: var(--border-radius);
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--color-bg-secondary);
-  color: var(--color-text);
-  cursor: pointer;
-  transition: all var(--transition);
-  
-  /* Bessere Accessibility */
-  min-height: 44px; /* Touch-freundliche Mindestgröße */
-}
-
-button:hover {
-  border-color: var(--color-primary);
-  background-color: rgba(100, 108, 255, 0.1);
-}
-
-button:focus,
-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 /* Inputs */
@@ -159,3 +127,4 @@ input:focus, textarea:focus, select:focus {
     scroll-behavior: smooth;
   }
 }
+
