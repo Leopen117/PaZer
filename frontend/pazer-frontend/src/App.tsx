@@ -86,7 +86,7 @@ function App() {
           />
           <InputField label="Pace" name="pace" value={pace} readonly />
 
-          <Button />
+          <Button className="submit" type="submit" />
         </form>
       </div>
 

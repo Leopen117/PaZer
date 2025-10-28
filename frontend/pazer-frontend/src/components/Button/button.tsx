@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   fullWidth = false,
   className,
-  disabled,
+  disabled = false,
   onClick,
   ...props
 }) => {
