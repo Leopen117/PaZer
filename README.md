@@ -63,3 +63,17 @@ python `manage.py` runserver 0.0.0.0:8000
 ## Hinweise
 - Änderungen an Models erfordern erneutes Ausführen von `makemigrations` und `migrate`.
 - Für Produktion einen geeigneten WSGI/ASGI-Server und sichere Einstellungen verwenden.
+
+---
+# Frontend: Schnellstart
+
+Um das Frontend zu starten muss man folgende Schritte ausführen:
+
+## Installation von Abhängigkeiten
+
+Im Orner frontend befindent gibt man folgende Befehle ein 
+```
+npm install
+npm run dev
+```
+Danach läuft das Frontend auf dem localhost /3000 laufen.
