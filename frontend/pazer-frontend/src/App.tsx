@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { Banner } from "./components/banner";
-import { Button } from "./components/button";
+
+import Button from "./components/Button/button";
 import { HistoryChart } from "./components/historyChart";
 import { HistoryTable } from "./components/historyTable";
 import { InputField } from "./components/inputField";
@@ -31,6 +32,8 @@ function App() {
     }
   };
 
+  // Daten zusammenführen
+
   const data: NewRunningUnit = {
     route_name: formData.streckenname,
     kilometers: formData.km,
@@ -43,7 +46,7 @@ function App() {
     e.preventDefault();
     try {
       await createRun(data);
-      setReloadFlag((prev) => prev + 1); // 🔄 Trigger für Tabelle
+      setReloadFlag((prev) => prev + 1); // Trigger für Tabelle
       setFormData({ km: "", zeit: "", datum: "", streckenname: "" }); // Reset Formular
       setPace("");
     } catch (err) {
@@ -55,35 +58,37 @@ function App() {
     <>
       <Banner />
       <HistoryChart></HistoryChart>
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <InputField
-          label="Kilometer"
-          name="km"
-          value={formData.km}
-          onChange={handleChange}
-        />
-        <InputField
-          label="Zeit"
-          name="zeit"
-          value={formData.zeit}
-          onChange={handleChange}
-        />
-        <InputField
-          label="Datum"
-          name="datum"
-          value={formData.datum}
-          onChange={handleChange}
-        />
-        <InputField
-          label="Streckenname"
-          name="streckenname"
-          value={formData.streckenname}
-          onChange={handleChange}
-        />
-        <InputField label="Pace" name="pace" value={pace} readonly />
+      <div className="responsive-form">
+        <form id="form-data" onSubmit={handleSubmit}>
+          <InputField
+            label="Kilometer (km)"
+            name="km"
+            value={formData.km}
+            onChange={handleChange}
+          />
+          <InputField
+            label="Zeit (min)"
+            name="zeit"
+            value={formData.zeit}
+            onChange={handleChange}
+          />
+          <InputField
+            label="Datum (dd.mm.yyyy)"
+            name="datum"
+            value={formData.datum}
+            onChange={handleChange}
+          />
+          <InputField
+            label="Streckenname"
+            name="streckenname"
+            value={formData.streckenname}
+            onChange={handleChange}
+          />
+          <InputField label="Pace" name="pace" value={pace} readonly />
 
-        <Button label="Update" />
-      </form>
+          <Button />
+        </form>
+      </div>
 
       {/* reloadFlag wird als Prop übergeben */}
       <HistoryTable reloadFlag={reloadFlag} />
