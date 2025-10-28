@@ -6,7 +6,7 @@ from django.db import models
 
 class RunningUnit(models.Model):
     # Automatisches Datum beim Erstellen
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
 
     # Name der Laufstrecke
     route_name = models.CharField(max_length=100)
@@ -16,6 +16,7 @@ class RunningUnit(models.Model):
 
     # Zeitpunkt der Erstellung (Datum + Uhrzeit)
     time = models.DateTimeField(auto_now_add=True)
+
 
     # Geschwindigkeit in Minuten pro Kilometer
     pace = models.FloatField()

@@ -7,7 +7,8 @@ from .models import RunningUnit
 @admin.register(RunningUnit)
 class RunningUnitAdmin(admin.ModelAdmin):
     # Felder, die im Admin-Panel angezeigt werden
-    list_display = ("id", "date", "route_name", "kilometers", "pace", "time")
+    # list_display = ("id", "date", "route_name", "kilometers", "pace", "time")
+    list_display = ("id", "date", "route_name", "kilometers", "pace")
 
     # Suche im Admin nach Streckennamen
     search_fields = ("route_name",)
