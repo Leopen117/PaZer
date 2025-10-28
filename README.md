@@ -46,11 +46,11 @@ Der Server ist dann unter `http://localhost:8000` bzw.\ `http://<IP>:8000` errei
 
 ## Kurze Reihenfolge (kompakt)
 \`\`\`bash
-# optional: virtuelles Environment
+# Starten der virtuellen Umgebung
 python -m venv .venv
 .venv\Scripts\activate
 
-# Abhängigkeiten
+# Abhängigkeiten installieren
 pip install -r `requirements.txt`
 
 # Migrationen + Superuser + Start
