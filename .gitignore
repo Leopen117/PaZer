@@ -1,0 +1,12 @@
+# IDE Einstellungen
+.idea/*
+
+# virtuelle Enviroment Einstellungen
+.venv/*
+
+# Enviroment Variablen
+.env
+
+# lokalw Cache-Datein
+*.pyc
+__pycache__/
